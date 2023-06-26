@@ -20,4 +20,10 @@ router.post("/todos", async (req, res) => {
   return res.send({ todo });
 });
 
+router.get("/todos", async (req, res) => {
+  const todos = await Todo.find().sort("-order").exec();
+
+  res.send({ todos });
+});
+
 module.exports = router;
