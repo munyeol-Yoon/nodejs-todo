@@ -6,7 +6,9 @@ const TodoSchema = new mongoose.Schema({
   order: Number, // 몇 번째 할일인지
 });
 
-TodoSchema.virtual("todoId").get(() => this._id.toHexString());
+TodoSchema.virtual("todoId").get(function () {
+  return this._id.toHexString();
+});
 
 TodoSchema.set("toJSON", {
   virtuals: true,
